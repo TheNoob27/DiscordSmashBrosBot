@@ -44,10 +44,24 @@ class Kahoot extends Client {
         "WEBHOOKS_UPDATE"
       ]
     })
+    
+    this.commands = new Collection()
+    this.ownerCommands = new Collection()
+    this.aliases = new Collection()
+    this.ownerAliases = new Collection()
+    
+    this.db = new table("Data")
   }
   
   get owner() {
-    return this.users.get("342421078066593803") || this.fetchUser("342421078066593803")
+    return this.users.get("342421078066593803") || {
+      id: '342421078066593803',
+      username: 'TheNoob27',
+      discriminator: '6815',
+      tag: "TheNoob27#6815",
+      avatar: 'e28bbf218b6fed1e4ec9706b98370a3d',
+      bot: false,
+    }
   }
   
   get userCount() {
