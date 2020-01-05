@@ -47,7 +47,7 @@ class Kahoot extends Client {
   }
   
   get owner() {
-    return this.users.get()
+    return this.users.get("342421078066593803") || this.fetchUser("342421078066593803")
   }
   
   get userCount() {
