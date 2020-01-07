@@ -46,9 +46,8 @@ class Kahoot extends Client {
     })
     
     this.commands = new Collection()
-    this.ownerCommands = new Collection()
     this.aliases = new Collection()
-    this.ownerAliases = new Collection()
+    this.games = new Collection()
     
     this.db = new table("Data")
   }
