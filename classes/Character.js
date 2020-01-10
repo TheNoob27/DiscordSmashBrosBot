@@ -5,6 +5,11 @@ class Character {
     this.y = 0
     this.helpless = false
     this.doublejumped = false
-    this.icon
+    this.icon = icons[this.name]
+    this.emoji = "<:"+this.name.toLowerCase()+":"+this.icon+">"
   }
+}
+
+let icons = {
+  Mario: "665103155230539776"
 }
