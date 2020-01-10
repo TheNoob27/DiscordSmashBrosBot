@@ -13,12 +13,17 @@ class Game {
     let x = -10
     let y = 10
     
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 300; i++) {
       let inplace = this.players.find(p => p.x == x && p.y == y)
       if (inplace) {
         let icon = inplace.emoji
-        screen 
-      }
+        screen += icon
+      } else screen += blank
+      
+      if (x == 10 && y == -10) break;
+      
+      y = x == 10 ? y - 1 : y
+      x = x == 10 ? -10 : x + 1
     }
   }
 }
