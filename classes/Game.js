@@ -25,5 +25,7 @@ class Game {
       y = x == 10 ? y - 1 : y
       x = x == 10 ? -10 : x + 1
     }
+    
+    return screen
   }
 }
