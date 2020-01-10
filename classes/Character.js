@@ -11,6 +11,10 @@ class Character {
     
     return this
   }
+  
+  get onStage() {
+    return Math.floor(this.y) == 0 && [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5].includes(Math.floor(this.x))
+  }
 }
 
 let icons = {
