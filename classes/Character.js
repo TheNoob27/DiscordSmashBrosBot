@@ -7,6 +7,9 @@ class Character {
     this.doublejumped = false
     this.icon = icons[this.name]
     this.emoji = "<:"+this.name.toLowerCase()+":"+this.icon+">"
+    this.hp = 0
+    
+    return this
   }
 }
 
