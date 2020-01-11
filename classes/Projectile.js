@@ -13,9 +13,10 @@ class Projectile {
         this.y += this.direction == "up" ? 1 : -1
       }
       
+      if (this.game.offStage(this)) return this.destroy()
     })
   }
-  
+
   destroy() {
     clearInterval(this.interval)
     delete this
