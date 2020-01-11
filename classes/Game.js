@@ -39,4 +39,8 @@ class Game {
     
     return screen
   }
+  
+  offScreen(obj) {
+    return (obj.x >= -4 && obj.x <= 4) && (obj.y >= -3 && obj.y <= 6)
+  }
 }

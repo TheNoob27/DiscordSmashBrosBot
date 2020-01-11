@@ -16,6 +16,10 @@ class Character {
     return this
   }
   
+  get offScreen() {
+    return this.game.offScreen(this)
+  }
+  
   get onStage() {
     return Math.floor(this.y) == 0 && [-4, -3, -2, -1, 0, 1, 2, 3, 4].includes(Math.floor(this.x))
   }
