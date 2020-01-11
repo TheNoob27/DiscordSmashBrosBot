@@ -14,14 +14,14 @@ class Game {
     let x = -4
     let y = 6
     
-    for (var i = 0; i < 65; i++) {
+    for (var i = 0; i < 70; i++) {
       let inplace = this.players.find(p => Math.round(p.x) == x && Math.round(p.y) == y)
       if (inplace) {
         screen += inplace.icon
       } else {
         screen += blank
       }
-      
+      if (x == 4) screen += "\n"
       y = x == 4 ? y - 1 : y
       x = x == 4 ? -4 : x + 1
       
