@@ -1,3 +1,5 @@
+const shields = ["🔴", "🔵", "🟡", "🟢"]
+
 class Character {
   constructor(game, character) {
     this.game = game
@@ -8,6 +10,7 @@ class Character {
     this.helpless = false
     this.doublejumped = false
     this.hp = 0
+    this.shield = shields[game.players.length]
     this.shieldhp = 100
     
     return this
