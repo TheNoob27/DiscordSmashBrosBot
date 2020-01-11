@@ -2,6 +2,7 @@ class Character {
   constructor(game, character) {
     this.game = game
     this.name = character
+    this.tag = "P"+game.players.length + 1
     this.x = 0
     this.y = 0
     this.helpless = false
