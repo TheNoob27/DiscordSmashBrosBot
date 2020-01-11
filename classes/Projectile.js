@@ -4,7 +4,9 @@ class Projectile {
     this.owner = player
     this.direction = direction
     this.speed = speed
-    
-    
+    this.x = player.x
+    this.interval = setInterval(() => {
+      
+    })
   }
 }
