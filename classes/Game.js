@@ -1,7 +1,8 @@
 class Game {
-  constructor(client, ...players) {
+  constructor(client, players = []) {
     this.client = client
-    this.players = [...players]
+    this.players = players
+    this.playerlist = players.map(p => p.id)
     this.logs = []
     this.time = 0
   }
@@ -30,7 +31,7 @@ class Game {
         }
     }
     
-    
+    return screen
     /*
     let x = -10
     let y = 10

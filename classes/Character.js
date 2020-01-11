@@ -22,6 +22,6 @@ class Character {
   }
   
   toString() {
-    return this.icon ? this.icon : ""
+    return this.icon ? this.icon : this.tag
   }
 }
