@@ -7,7 +7,7 @@ class Character {
     this.helpless = false
     this.doublejumped = false
     this.hp = 0
-    this.shieldhp = 0
+    this.shieldhp = 100
     
     return this
   }
@@ -18,5 +18,9 @@ class Character {
   
   get inAir() {
     return !this.onStage
+  }
+  
+  toString() {
+    return this.icon ? this.icon : ""
   }
 }
