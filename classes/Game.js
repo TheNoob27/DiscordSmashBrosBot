@@ -18,7 +18,12 @@ class Game {
       if (inplace) {
         let icon = inplace.emoji
         screen += icon
-      } else screen += blank
+      } else {
+        if (y == -1 && x == -5) {
+          screen += "--"
+        }
+        screen += blank
+      }
       
       if (x == 10 && y == -10) break;
       
