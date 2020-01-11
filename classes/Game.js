@@ -14,15 +14,20 @@ class Game {
     let y = 8
     
     for (var i = 0; i < 130; i++) {
-      let inplace = this.players.find(p => p.x == Math.round(x) && p.y == Math.round(y))
+      let inplace = this.players.find(p => Math.round(p.x) == x && Math.round(p.y) == y)
       if (inplace) {
         screen += inplace.icon
       } else {
-        if (y == -1 && x == -8) {
-          screen += "--"
-        }
         screen += blank
       }
+      
+      y = x == 8 ? y - 1 : y
+      x = x == 8 ? -8 : x + 1
+      
+      if (y == -1 && x == -8) {
+          screen += stage
+          break;
+        }
     }
     
     
