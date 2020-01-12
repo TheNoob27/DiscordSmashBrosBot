@@ -1,5 +1,5 @@
 class Game {
-  constructor(client, players = []) {
+  constructor(client) {
     this.client = client
     this.players = []
     this.playerlist = []
@@ -29,7 +29,7 @@ class Game {
     for (var i = 0; i < 70; i++) {
       let inplace = this.players.find(p => Math.round(p.x) == x && Math.round(p.y) == y)
       if (inplace) {
-        screen += inplace.icon
+        screen += inplace.character.icon
       } else {
         screen += blank
       }

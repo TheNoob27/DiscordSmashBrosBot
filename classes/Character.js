@@ -4,7 +4,7 @@ class Character {
   constructor(game, character) {
     this.game = game
     this.name = character
-    this.tag = "P"+game.players.length + 1
+    this.tag = "P"+(game.players.length + 1)
     
     this.x = startingpos[game.players.length] || 0
     this.y = 0
