@@ -14,6 +14,7 @@ class Character {
     this.doublejumped = false
     this.shielding = false
     this.launching = false
+    this.dead = false
     
     this.shield = shields[game.players.length]
     this.hp = 0
@@ -74,7 +75,7 @@ class Character {
   
   fall() {
     let int = setInterval(() => {
-      if (this.launching || this.y < 1 || !this.inAir) return;
+      if (this.launching || Math.ceil(this.y) < 1 || !this.inAir) return;
       
       this.y -= 1
       if (Math.round(this.y) == -1) this.y = 0
