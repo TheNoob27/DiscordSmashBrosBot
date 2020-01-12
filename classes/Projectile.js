@@ -18,8 +18,9 @@ class Projectile {
       
       if (this.game.offStage(this)) return this.destroy()
       
-      let hitting = this.game.players.find(p => Math.round(p.character.x) == this.x && Math.round(p.character.y) == this.y)
+      let hitting = this.game.players.find(p => Math.round(p.character.x) == this.x && Math.round(p.character.y) == this.y && p.id !== this.owner.id)
       if (hitting) {
+        this.game.log(hitting.tag + " got hit with a " + (this.icon || "projectile") + " from "+this.owner.tag)
         hitting.character.damage(this.damage, this.flinching)
         this.destroy()
       }
