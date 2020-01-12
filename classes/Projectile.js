@@ -2,6 +2,7 @@ class Projectile {
   constructor(player, config = {}) {
     this.game = player.game
     this.owner = player
+    this.damage = config.damage
     this.direction = config.direction.toLowerCase()
     this.speed = config.speed
     this.flinching = config.flinching

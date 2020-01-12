@@ -12,7 +12,7 @@ class Character {
     this.hp = 0
     this.shield = shields[game.players.length]
     this.shieldhp = 100
-    
+    this.facing = game.players.length >= 2 ? "left" : "right"
     return this
   }
   
