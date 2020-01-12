@@ -71,6 +71,17 @@ class Character {
     if (this.facing !== direction) this.facing = direction
     this.x += direction == "left" ? -this.speed : this.speed
   }
+  
+  fall() {
+    let int = setInterval(() => {
+      if (this.launching || this.y < 1 || !this.inAir) return;
+      
+      this.y -= 1
+      if (Math.round(this.y) == -1) this.y = 0
+    }, this.weight * 1000)
+    
+    this.intervals.push({id: "fall", interval: int})
+  }
 }
 
 module.exports = Character
