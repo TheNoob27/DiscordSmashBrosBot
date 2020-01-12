@@ -5,15 +5,20 @@ class Character {
     this.game = game
     this.name = character
     this.tag = "P"+game.players.length + 1
+    
     this.x = startingpos[game.players.length] || 0
     this.y = 0
+    this.facing = game.players.length >= 2 ? "left" : "right"
+    
     this.helpless = false
     this.doublejumped = false
-    this.hp = 0
-    this.shield = shields[game.players.length]
     this.shielding = false
+    this.launching = false
+    
+    this.shield = shields[game.players.length]
+    this.hp = 0
     this.shieldhp = 100
-    this.facing = game.players.length >= 2 ? "left" : "right"
+    
     return this
   }
   
@@ -27,6 +32,13 @@ class Character {
   
   get inAir() {
     return !this.onStage
+  }
+  
+  damage(dmg = 5, flinch = false) {
+    this.hp += dmg
+    if (flinch) {
+      this.launching = false
+    }
   }
   
   toString() {

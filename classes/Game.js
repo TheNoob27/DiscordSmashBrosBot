@@ -10,7 +10,7 @@ class Game {
   addPlayer(player) {
     this.players.push(player)
     this.playerlist.push(player.id)
-    return true
+    return player
   }
   
   log(text) {
