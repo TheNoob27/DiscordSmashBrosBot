@@ -1,4 +1,4 @@
-//*
+/*
 let Player = require("./classes/Player.js")
 let Game = require("./classes/Game.js")
 let Projectile = require("./classes/Projectile.js")

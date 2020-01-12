@@ -38,7 +38,11 @@ class Character {
     if (this.shielding) {
       this.shieldhp -= dmg / 2
       if (this.shieldhp < 1) {
-        this.game.log(this)
+        this.game.log(this.player.tag + "'s shield broke! They are stunned!")
+        this.helpless = true
+        setTimeout(() => {
+          this.game.log(this.player.tag + " can move again!")
+        }, this.hp < 10 ? this.hp * 500 : this.hp / 3 * 100)
       }
     } else {
       this.hp += dmg
@@ -53,7 +57,11 @@ class Character {
   }
   
   walk(direction) {
+    direction = direction.toLowerCase()
     
+    if (["left", "right"].includes(direction)) return;  
+    if (this.facing !== direction) this.facing = direction
+    this.x += direction == "left" ? -this.speed : this.speed
   }
 }
 
