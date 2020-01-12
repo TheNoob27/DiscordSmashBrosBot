@@ -1,10 +1,16 @@
 class Game {
   constructor(client, players = []) {
     this.client = client
-    this.players = players
-    this.playerlist = players.map(p => p.id)
+    this.players = []
+    this.playerlist = []
     this.logs = []
     this.time = 0
+  }
+  
+  addPlayer(player) {
+    this.players.push(player)
+    this.playerlist.push(player.id)
+    return true
   }
   
   log(text) {
