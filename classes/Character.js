@@ -37,20 +37,29 @@ class Character {
     return !this.onStage
   }
   
+  breakShield() {
+    this.game.log(this.player.tag + "'s shield broke! They are stunned!")
+    this.helpless = true
+    this.shieldhp = 100
+    setTimeout(() => {
+      if (!this.helpless) return;
+      this.game.log(this.player.tag + " can move again!")
+      this.helpless = false
+    }, this.hp * 250)
+  }
+  
+  clearIntervals() {
+    this.intervals.forEach(i => clearInterval(i.interval))
+    this.intervals = []
+  }
+  
   damage(dmg = 5, flinch = false) {
     if (this.shielding) {
       this.shieldhp -= dmg / 2
       if (this.shieldhp < 1) {
         this.shielding = false
         
-        this.game.log(this.player.tag + "'s shield broke! They are stunned!")
-        this.helpless = true
-        this.shieldhp = 100
-        setTimeout(() => {
-          if (!this.helpless) return;
-          this.game.log(this.player.tag + " can move again!")
-          this.helpless = false
-        }, this.hp * 250)
+        this.breakShield()
       }
     } else {
       this.hp += dmg
@@ -59,6 +68,31 @@ class Character {
         this.helpless = false
       }
     }
+  }
+  
+  fall() {
+    let int = setInterval(() => {
+      if (this.launching || Math.ceil(this.y) < 1 || !this.inAir) return;
+      
+      let inplace = this.game.players.find(p => Math.round(p.x) == Math.round(this.x) && Math.round(p.y) == Math.round(this.y) - 1)
+      if (inplace) return this.x -= Math.round((Math.random() * 2) - 1) || -1
+      
+      this.y -= 1
+      if (Math.round(this.y) == -1) this.y = 0
+    }, this.weight * 1000)
+    
+    this.intervals.push({id: "fall", interval: int})
+  }
+  
+  regenShield() {
+    let int = setInterval(() => {
+      if (this.shielding) {}
+    }, 1000)
+  }
+  
+  toggleShield() {
+    this.shielding = !this.shielding
+    this.game.log(this.player.tag + " " +(this.shielding ? "pulled up" : "released") +" their shield.")
   }
   
   toString() {
@@ -77,19 +111,6 @@ class Character {
     this.x += direction == "left" ? -this.speed : this.speed
   }
   
-  fall() {
-    let int = setInterval(() => {
-      if (this.launching || Math.ceil(this.y) < 1 || !this.inAir) return;
-      
-      let inplace = this.game.players.find(p => Math.round(p.x) == Math.round(this.x) && Math.round(p.y) == Math.round(this.y) - 1)
-      if (inplace) return this.x -= Math.round((Math.random() * 2) - 1) || -1
-      
-      this.y -= 1
-      if (Math.round(this.y) == -1) this.y = 0
-    }, this.weight * 1000)
-    
-    this.intervals.push({id: "fall", interval: int})
-  }
 }
 
 module.exports = Character

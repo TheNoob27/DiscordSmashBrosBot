@@ -29,7 +29,7 @@ class Game {
     for (var i = 0; i < 70; i++) {
       let inplace = this.players.find(p => Math.round(p.x) == x && Math.round(p.y) == y)
       if (inplace) {
-        screen += inplace.character.icon
+        screen += inplace.character.shielding ? inplace.character.shield : inplace.character.icon
       } else {
         screen += blank
       }
