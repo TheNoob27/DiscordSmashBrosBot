@@ -70,6 +70,10 @@ class Character {
     
     if (["left", "right"].includes(direction)) return;  
     if (this.facing !== direction) this.facing = direction
+    
+    let inplace = this.game.players.find(p => Math.round(p.y) == Math.round(this.y) && Math.round(p.y) == Math.round(this.x) + (direction == "left" ? -this.speed : this.speed))
+    if (inplace) return;
+    
     this.x += direction == "left" ? -this.speed : this.speed
   }
   
