@@ -6,4 +6,4 @@ let user = {username: "hi", tag: "hi#3833", id: "123456789012345678", client: nu
 let game = new Game()
 game.addPlayer(new Player(game, user, "Mario"))
 
-//console.log(game.loadScreen().length)
+console.log(game.loadScreen().length)
