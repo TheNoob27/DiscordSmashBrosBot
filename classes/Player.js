@@ -7,6 +7,7 @@ class Player {
     this.tag = user.tag
     this.id = user.id
     this.character = new characters[character.toLowerCase()](this.game)
+    this.character.player = this
   }
   
   get x() {

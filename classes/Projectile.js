@@ -16,7 +16,7 @@ class Projectile {
         this.y += this.direction == "up" ? 1 : -1
       }
       
-      if (this.game.offStage(this)) return this.destroy()
+      if (this.game.offScreen(this)) return this.destroy()
       
       let hitting = this.game.players.find(p => Math.round(p.character.x) == this.x && Math.round(p.character.y) == this.y && p.id !== this.owner.id)
       if (hitting) {
@@ -24,12 +24,13 @@ class Projectile {
         hitting.character.damage(this.damage, this.flinching)
         this.destroy()
       }
-    })
+    }, this.speed * 1000)
   }
 
   destroy() {
     clearInterval(this.interval)
     delete this
+    console.log(this)
   }
 }
 
