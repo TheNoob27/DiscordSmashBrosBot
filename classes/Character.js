@@ -51,6 +51,10 @@ class Character {
   toString() {
     return this.icon ? this.icon : this.tag
   }
+  
+  walk(direction) {
+    
+  }
 }
 
 module.exports = Character

@@ -2,12 +2,12 @@ class Projectile {
   constructor(player, config = {}) {
     this.game = player.game
     this.owner = player
-    this.damage = config.damage
+    this.damage = config.damage || 5
     this.direction = config.direction.toLowerCase()
-    this.speed = config.speed
+    this.speed = config.speed || 1
     this.flinching = config.flinching
-    this.x = player.x
-    this.y = player.y
+    this.x = config.x || player.x
+    this.y = config.y || player.y
     
     this.interval = setInterval(() => {
       if (["right", "left"].includes(this.direction)) {
@@ -30,7 +30,7 @@ class Projectile {
   destroy() {
     clearInterval(this.interval)
     delete this
-    console.log(this)
+    return this
   }
 }
 
