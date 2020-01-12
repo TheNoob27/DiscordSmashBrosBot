@@ -14,6 +14,7 @@ class Character {
     this.doublejumped = false
     this.shielding = false
     this.launching = false
+    this.brokenshield = false
     this.dead = false
     
     this.shield = shields[game.players.length]
@@ -38,13 +39,15 @@ class Character {
   }
   
   breakShield() {
+    if (this.shielding) this.shielding = false
+    
     this.game.log(this.player.tag + "'s shield broke! They are stunned!")
-    this.helpless = true
+    this.brokenshield = true
     this.shieldhp = 100
     setTimeout(() => {
-      if (!this.helpless) return;
+      if (!this.brokenshield) return;
       this.game.log(this.player.tag + " can move again!")
-      this.helpless = false
+      this.brokenshield = false
     }, this.hp * 250)
   }
   
@@ -86,8 +89,21 @@ class Character {
   
   regenShield() {
     let int = setInterval(() => {
-      if (this.shielding) {}
+      if (this.brokenshield) return;
+      if (this.shieldhp == 100 && !this.shielding) return;
+      
+      if (this.shielding) {
+        this.shieldhp -= 5
+        if (this.shieldhp < 1) {
+          this.breakShield()
+        }
+      } else {
+        this.shieldhp += 5
+        if (this.shieldhp > 100) this.shieldhp = 100
+        
+      }
     }, 1000)
+    this.intervals.push({id: "shieldregen", interval: int})
   }
   
   toggleShield() {
