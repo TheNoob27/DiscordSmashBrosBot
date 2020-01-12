@@ -6,6 +6,7 @@ class Mario extends Character {
     
     this.icon = "<:mario:665103155230539776>"
     this.weight = 1
+    this.speed = 1
   }
   
 }
