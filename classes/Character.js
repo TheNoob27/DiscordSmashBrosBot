@@ -35,9 +35,16 @@ class Character {
   }
   
   damage(dmg = 5, flinch = false) {
-    this.hp += dmg
-    if (flinch) {
-      this.launching = false
+    if (this.shielding) {
+      this.shieldhp -= dmg / 2
+      if (this.shieldhp < 1) {
+        this.game.log(this)
+      }
+    } else {
+      this.hp += dmg
+      if (flinch) {
+        this.launching = false
+      }
     }
   }
   
