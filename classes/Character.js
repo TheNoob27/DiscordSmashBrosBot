@@ -81,6 +81,9 @@ class Character {
     let int = setInterval(() => {
       if (this.launching || Math.ceil(this.y) < 1 || !this.inAir) return;
       
+      let inplace = this.game.players.find(p => Math.round(p.x) == Math.round(this.x) && Math.round(p.y) == Math.round(this.y) - 1)
+      if (inplace) return this.x -= Math.round((Math.random() * 2) - 1) || -1
+      
       this.y -= 1
       if (Math.round(this.y) == -1) this.y = 0
     }, this.weight * 1000)
