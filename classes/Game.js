@@ -50,3 +50,5 @@ class Game {
     return (obj.x >= -4 && obj.x <= 4) && (obj.y >= -3 && obj.y <= 6)
   }
 }
+
+module.exports = Game

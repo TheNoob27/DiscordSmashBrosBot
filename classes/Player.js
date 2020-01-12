@@ -21,3 +21,5 @@ class Player {
 let characters = {
   mario: require("./Characters/Mario.js")
 }
+
+module.exports = Player

@@ -32,3 +32,5 @@ class Projectile {
     delete this
   }
 }
+
+module.exports = Projectile

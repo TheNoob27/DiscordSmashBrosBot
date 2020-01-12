@@ -45,3 +45,5 @@ class Character {
     return this.icon ? this.icon : this.tag
   }
 }
+
+module.exports = Character

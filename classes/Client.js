@@ -1,7 +1,7 @@
 const { Client, Collection } = require("discord.js")
 const { table } = require("quick.db")
 
-class SmashBros extends Client {
+class SmashBrosClient extends Client {
   constructor() {
   super({
       disabledEvents: [
@@ -67,3 +67,5 @@ class SmashBros extends Client {
     return this.guilds.reduce((prev, acc) => acc.memberCount + prev, 0)
   }
 }
+
+module.exports = SmashBrosClient

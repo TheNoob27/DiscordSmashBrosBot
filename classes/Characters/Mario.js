@@ -10,3 +10,5 @@ class Mario extends Character {
   }
   
 }
+
+module.exports = Mario
