@@ -1,7 +1,7 @@
 {
-  "name": "discord-kahoot",
+  "name": "discord-smashbros",
   "version": "0.0.1",
-  "description": "Kahoot Discord Bot, remade.",
+  "description": "Discord Smash Bros Bot that mimics smash bros games.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

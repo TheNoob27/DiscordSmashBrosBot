@@ -1,7 +1,7 @@
 const { Client, Collection } = require("discord.js")
 const { table } = require("quick.db")
 
-class Kahoot extends Client {
+class SmashBros extends Client {
   constructor() {
   super({
       disabledEvents: [
