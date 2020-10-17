@@ -1,5 +1,4 @@
 const { Client, Collection } = require("discord.js")
-const { table } = require("quick.db")
 
 class SmashBrosClient extends Client {
   constructor() {
@@ -48,8 +47,6 @@ class SmashBrosClient extends Client {
     this.commands = new Collection()
     this.aliases = new Collection()
     this.games = new Collection()
-    
-    this.db = new table("Data")
   }
   
   get owner() {

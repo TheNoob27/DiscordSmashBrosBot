@@ -7,20 +7,16 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
     "discord.js": "^11.5.1",
-    "quick.db": "latest"
-  },
-  "engines": {
-    "node": "11.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://github.com/TheNoob27/DiscordSmashBrosBot"
   },
   "license": "MIT",
   "keywords": [
-    "node",
-    "glitch",
-    "express"
+    "discord",
+    "smashbros",
+    "discordbot",
+    "bot"
   ]
 }
